@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "ethereum-waffle": "^3.4.0",
+    "hardhat": "^2.8.3"
+  },
+  "dependencies": {
+    "@cosmjs/crypto": "^0.32.2",
+    "@cosmjs/proto-signing": "^0.32.2",
+    "@openzeppelin/contracts": "^4.4.2"
+  },
+  "scripts": {
+    "token-deploy": "npx hardhat run --network testnet scripts/deploy/token.js",
+    "token-totalSupply": "npx hardhat totalSupply --network testnet",
+    "token-balanceOf": "npx hardhat balanceOf --network testnet",
+    "token-transfer": "npx hardhat transfer --network testnet",
+    "token-approve": "npx hardhat approve --network testnet",
+    "token-transferFrom": "npx hardhat transferFrom --network testnet"
+  }
+}
