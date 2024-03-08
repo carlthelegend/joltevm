@@ -13,8 +13,14 @@ async function main() {
     const totalSupply = ethers.utils.parseEther("10").toString()
     const token = await Token.deploy(totalSupply);
 
+    // Wait for the contract to be deployed
+    await token.deployed()
+
     const symbol = await token.symbol();
     console.log(symbol, "token deployed to:", token.address);
+
+    // Print transaction hash
+    console.log("Transaction hash:", token.deployTransaction.hash);
 }
 
 main()
