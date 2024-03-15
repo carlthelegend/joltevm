@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
-
+// require("@nomicfoundation/hardhat-verify");
+require("@nomiclabs/hardhat-etherscan");
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
@@ -17,13 +18,40 @@ module.exports = {
       gas: 80000000,
       timeout: 600000,
     },
+    // testnet: {
+    //   url: "joltify_testnet_rpc_url",
+    //   accounts: {
+    //     mnemonic: "test test test test test test test test test test test junk",
+    //     path: "m/44'/118'/0'/0",
+    //     initialIndex: 0,
+    //     count: 20,
+    //     passphrase: "",
+    //   },
+    //   gas: 80000000,
+    //   timeout: 600000,
+    // },
     testnet: {
-      url: "joltify_testnet_rpc_url",
+      url: "http://65.109.48.184:8555",
       accounts: ["850640dc6b476dc172853cd966cd9a3ee00b2e824b8bdcbfa3c66a43ae4ee3dd"],
       gas: 80000000,
       timeout: 600000,
     }
   },
+  etherscan: {
+    apiKey: {
+      testnet: "any_but_not_empty"
+    },
+    customChains: [
+      {
+        network: "testnet",
+        chainId: 1730,
+        urls: {
+          apiURL: "http://127.0.0.1:4000/api",
+          browserURL: "http://127.0.0.1:4000"
+        }
+      }
+    ]
+  }
 };
 
 task("totalSupply", "Total supply of ERC-20 token")
